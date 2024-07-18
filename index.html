@@ -14,72 +14,28 @@
 </header>
 
 <main>
-	<img id="Card_img_Before" src="./img/card1.png" width="100" height="150">
-	<img id="Card_img_After" src="./img/card_back.png" width="100" height="150">
+    <!-- カード表示 -->
+    <div>
+        <img id="Card_img_Before" src="./img/card1.png" width="100" height="150">
+        <img id="Card_img_After" src="./img/card_back.png" width="100" height="150">
+    </div>
 
-	<p id="Before">場にあるカードは１</p>
-	<p id="After">次のカードは場にあるカードより高い？低い？</p>
+    <!-- 結果表示 -->
+    <div>
+        <p id="Before">場にあるカードは１</p>
+        <p id="After">次のカードは場にあるカードより高い？低い？</p>
+    </div>
 
+    <!-- ボタン表示 -->
     <div id="game">
-        <input type="button" value="High" id="high" onclick="High_Low(1);"/>
-        <input type="button" value="Low" id="low" onclick="High_Low(0);"/>
+        <input type="button" value="High" id="high">
+        <input type="button" value="Low" id="low">
     </div>
     <div id="next">
         <input type="button" value="次へ" onclick="Next();"/>
     </div>
 </main>
 
-<script>
-let card = 1;// 場にあるトランプのカード番号
-let Hi_L = 0;// Low(0) と High(1) 
-let Result = "";//勝ち負けの結果
-
-$("#next").css("display", "none"); //nextボタンの非表示
-
-function High_Low(Hi_L) {
-    console.log("push");
-    document.getElementById("Card_img_Before").src="./img/card" + card + ".png";
-    let trump_n = Math.ceil( Math.random() * 13);// ランダムで数字を決める
-
-    if (card < trump_n) {//賭けカードが、伏せカードより大きい場合
-        if (Hi_L === 0){ 
-            Result = "<span style='background:blue;'>『 負け 』</span>";
-        }
-        if (Hi_L === 1){
-            Result = "<span style='background:red;'>【 勝ち 】</span>";
-        }
-    }
-    else if (card > trump_n) {//賭けカードが、伏せカードより小さい場合
-        if (Hi_L === 0){ 
-            Result = "<span style='background:red;'>【 勝ち 】</span>";
-        }
-        if (Hi_L === 1){
-            Result = "<span style='background:blue;'>『 負け 』</span>";
-        }
-    }
-    else {
-        Result = "引き分け！！";
-    }
-
-    document.getElementById("Card_img_After").src="./img/card" + trump_n + ".png";
-    document.getElementById("After").innerHTML = Result;
-    document.getElementById("Before").innerHTML ="場にあるカードは" + card ;
-    card = trump_n;//場にあるカードを新しく引いたカードに変える
-
-    $("#game").css("display", "none");
-    $("#next").css("display", "block");
-}
-
-function Next(){
-    document.getElementById("Card_img_Before").src="./img/card" + card + ".png";
-    document.getElementById("Card_img_After").src="./img/card_back.png";
-    document.getElementById("Before").innerHTML ="場にあるカードは" + card ;
-    document.getElementById("After").innerHTML ="次のカードは今の数字より高い？低い？"
-    $("#game").css("display", "block");
-    $("#next").css("display", "none");
-}
-
-
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

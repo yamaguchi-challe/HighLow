@@ -1,13 +1,12 @@
-ody{
+body{
     margin:0;
     padding:0;
-    text-align:left;
+    text-align:center;
     font-size: 32px;
 }
 header{
     background-color: #fff;
     /* border-bottom: 1px solid #ccc; */
-    text-align: center;
 }
 
 header h1{
@@ -15,12 +14,12 @@ header h1{
 }
 main{
     border-bottom:1px solid #ccc;
-    text-align: center;
 }
 
 img{
-    width: 150px;
-    height: 230px;
+    width: 350px;
+    height: 200px;
+    object-fit: contain;
 }
 
 input {
