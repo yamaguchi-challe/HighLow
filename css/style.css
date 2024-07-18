@@ -1,0 +1,36 @@
+ody{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    /* border-bottom: 1px solid #ccc; */
+    text-align: center;
+}
+
+header h1{
+    font-size: 50px;
+}
+main{
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+
+img{
+    width: 150px;
+    height: 230px;
+}
+
+input {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 16px;
+    margin: 0px 20px 20px 20px;
+    cursor: pointer;
+  }
