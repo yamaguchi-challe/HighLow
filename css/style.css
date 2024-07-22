@@ -3,6 +3,7 @@ body{
     padding:0;
     text-align:center;
     font-size: 32px;
+    background-color: green;
 }
 header{
     background-color: #fff;
@@ -13,12 +14,16 @@ header h1{
     font-size: 50px;
 }
 main{
-    border-bottom:1px solid #ccc;
+    /* border-bottom:1px solid #ccc; */
+}
+
+#result{
+    color: white;
 }
 
 img{
-    width: 350px;
-    height: 200px;
+    width: 380px;
+    height: 220px;
     object-fit: contain;
 }
 

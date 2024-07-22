@@ -16,14 +16,14 @@
 <main>
     <!-- カード表示 -->
     <div>
-        <img id="Card_img_Before" src="./img/card1.png" width="100" height="150">
-        <img id="Card_img_After" src="./img/card_back.png" width="100" height="150">
+        <img id="beforeCard" src="./img/card1.png" width="100" height="150">
+        <img id="afterCard" src="./img/card_back.png" width="100" height="150">
     </div>
 
     <!-- 結果表示 -->
-    <div>
-        <p id="Before">場にあるカードは１</p>
-        <p id="After">次のカードは場にあるカードより高い？低い？</p>
+    <div id="result">
+        <!-- <p id="Before">場にあるカードは１</p> -->
+        <p id="after">次のカードは場にあるカードより高い？低い？</p>
     </div>
 
     <!-- ボタン表示 -->
@@ -32,7 +32,7 @@
         <input type="button" value="Low" id="low">
     </div>
     <div id="next">
-        <input type="button" value="次へ" onclick="Next();"/>
+        <input type="button" value="Next game" id="next">
     </div>
 </main>
 
