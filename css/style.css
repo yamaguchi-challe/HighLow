@@ -13,9 +13,6 @@ header{
 header h1{
     font-size: 50px;
 }
-main{
-    /* border-bottom:1px solid #ccc; */
-}
 
 #result{
     color: white;
@@ -38,3 +35,9 @@ input {
     margin: 0px 20px 20px 20px;
     cursor: pointer;
   }
+
+table{
+    margin: auto;
+    width: 30%; /* テーブルの幅を指定 */
+    table-layout: fixed;
+}

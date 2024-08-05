@@ -1,8 +1,20 @@
 let card = 1;// 場にあるトランプのカード番号
 let Result = "";//勝ち負けの結果
 let changed = false; //カードが反転しているフラグ
+let win = 0;
+let lose = 0;
 
 $("#next").css("display", "none"); //nextボタンの非表示
+if(localStorage.hasOwnProperty("win")) {
+    // localstorageにwinの値が存在するとき
+    win = parseInt(localStorage.getItem("win"));
+    $("#win").html(win);
+}
+if(localStorage.hasOwnProperty("lose")) {
+    // localstorageにloseの値が存在するとき
+    lose = parseInt(localStorage.getItem("lose"));
+    $("#lose").html(lose);
+}
 
 // Highがクリックされたときの処理
 $("#high").on("click", function(){
@@ -12,10 +24,14 @@ $("#high").on("click", function(){
     if (card < trump_n) {//賭けカードが、伏せカードより大きい場合
         // 勝ち
         Result = "<span style='background:red;'>WIN!!</span>";
+        win += 1;
+        localStorage.setItem("win", win);
     }
     else if (card > trump_n) {//賭けカードが、伏せカードより小さい場合
         // 負け
         Result = "<span style='background:blue;'>LO$E...</span>";
+        lose += 1;
+        localStorage.setItem("lose", lose);
     }
     else {
         // 引き分け
@@ -32,10 +48,14 @@ $("#low").on("click", function(){
     if (card < trump_n) {//賭けカードが、伏せカードより大きい場合
         // 負け
         Result = "<span style='background:blue;'>LO$E...</span>";
+        lose += 1;
+        localStorage.setItem("lose", lose);
     }
     else if (card > trump_n) {//賭けカードが、伏せカードより小さい場合
         // 勝ち
         Result = "<span style='background:red;'>WIN!!</span>";
+        win += 1;
+        localStorage.setItem("win", win);
     }
     else {
         // 引き分け
@@ -45,19 +65,19 @@ $("#low").on("click", function(){
 });
 
 function showResult(trump_n) {
+    console.log(win)
     rotationAnimationLoop(document.getElementById("afterCard"), "./img/card" + trump_n + ".png", 0);
     setTimeout(function(){
         $("#after").fadeOut(0).fadeIn(500).html(Result);
       },700);  
     
-    
     card = trump_n;//場にあるカードを新しく引いたカードに変える
-
     $("#game").css("display", "none");
     setTimeout(function(){
         $("#next").css("display", "block");
+        $("#win").html(win);
+        $("#lose").html(lose);
       },1000);   
-    
 }
 
 // 次へがクリックされたときの処理
@@ -101,3 +121,13 @@ const rotationAnimation = (element, imagePath, deg) =>{
         element.style.webkitTransform = 'rotateY(' + deg + 'deg)';
     }
 }
+
+// Resetボタンが押されたとき
+$("#reset").on("click", function(){
+    // 初期化
+    win = 0;
+    lose = 0;
+    localStorage.clear();
+    $("#win").html(win);
+    $("#lose").html(lose);
+});
